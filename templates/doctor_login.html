@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f8ceec, #a88beb);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .auth-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            max-width: 450px;
+            width: 100%;
+        }
+        .btn-primary {
+            background: #a88beb;
+            border: none;
+        }
+        .btn-primary:hover {
+            background: #2d0a49;
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-card">
+        <h2 class="text-center mb-4">👨‍⚕️ Doctor Login</h2>
+        
+        <form id="doctorLoginForm">
+            <div class="mb-3">
+                <label>Email Address</label>
+                <input type="email" class="form-control" name="email" required>
+            </div>
+            <div class="mb-3">
+                <label>Password</label>
+                <input type="password" class="form-control" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+        
+        <div class="text-center mt-3">
+            <a href="/" class="text-muted">← Back to Home</a>
+        </div>
+        
+        <hr class="my-4">
+        <p class="text-muted text-center small">
+            <strong>Demo Doctor Account:</strong><br>
+            Email: doctor@test.com<br>
+            Password: doctor123<br>
+            <button class="btn btn-sm btn-outline-secondary mt-2" onclick="createDemoAccount()">Create Demo Account</button>
+        </p>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:5000/api';
+        
+        // Doctor Login
+        document.getElementById('doctorLoginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+            
+            try {
+                const response = await fetch(`${API_URL}/doctor/login`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(data)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    window.location.href = result.redirect;
+                } else {
+                    alert('Error: ' + result.error);
+                }
+            } catch (error) {
+                alert('Login failed: ' + error.message);
+            }
+        });
+        
+        // Create demo doctor account
+        async function createDemoAccount() {
+            try {
+                await fetch(`${API_URL}/doctor/register`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        email: 'doctor@test.com',
+                        password: 'doctor123',
+                        full_name: 'Dr. Demo',
+                        specialization: 'Ophthalmologist'
+                    })
+                });
+                alert('Demo account created! You can now login with:\nEmail: doctor@test.com\nPassword: doctor123');
+            } catch (error) {
+                console.log('Demo account may already exist');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f8ceec, #a88beb);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .auth-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            max-width: 500px;
+            width: 100%;
+        }
+        .nav-tabs .nav-link.active {
+            background: #a88beb;
+            color: white;
+        }
+        .btn-primary {
+            background: #a88beb;
+            border: none;
+        }
+        .btn-primary:hover {
+            background: #2d0a49;
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-card">
+        <h2 class="text-center mb-4">Patient Portal</h2>
+        
+        <ul class="nav nav-tabs mb-4" role="tablist">
+            <li class="nav-item flex-fill" role="presentation">
+                <button class="nav-link active w-100" data-bs-toggle="tab" data-bs-target="#login">Login</button>
+            </li>
+            <li class="nav-item flex-fill" role="presentation">
+                <button class="nav-link w-100" data-bs-toggle="tab" data-bs-target="#register">Register</button>
+            </li>
+        </ul>
+        
+        <div class="tab-content">
+            <!-- Login Tab -->
+            <div class="tab-pane fade show active" id="login">
+                <form id="loginForm">
+                    <div class="mb-3">
+                        <label>Email Address</label>
+                        <input type="email" class="form-control" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Password</label>
+                        <input type="password" class="form-control" name="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Login</button>
+                </form>
+            </div>
+            
+            <!-- Register Tab -->
+            <div class="tab-pane fade" id="register">
+                <form id="registerForm">
+                    <div class="mb-3">
+                        <label>Full Name</label>
+                        <input type="text" class="form-control" name="name" required>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label>Age</label>
+                            <input type="number" class="form-control" name="age" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label>Gender</label>
+                            <select class="form-control" name="gender" required>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label>Email Address</label>
+                        <input type="email" class="form-control" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Phone Number</label>
+                        <input type="tel" class="form-control" name="phone">
+                    </div>
+                    <div class="mb-3">
+                        <label>Password</label>
+                        <input type="password" class="form-control" name="password" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Diabetes Type</label>
+                        <select class="form-control" name="diabetes_type">
+                            <option value="">Select type</option>
+                            <option value="Type 1">Type 1</option>
+                            <option value="Type 2">Type 2</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Register</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="text-center mt-3">
+            <a href="/" class="text-muted">← Back to Home</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const API_URL = 'http://localhost:5000/api';
+        
+        // Patient Login
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+            
+            try {
+                const response = await fetch(`${API_URL}/patient/login`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(data)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    window.location.href = result.redirect;
+                } else {
+                    alert('Error: ' + result.error);
+                }
+            } catch (error) {
+                alert('Login failed: ' + error.message);
+            }
+        });
+        
+        // Patient Register
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+            
+            try {
+                const response = await fetch(`${API_URL}/patient/register`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(data)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    alert('Registration successful! Please login.');
+                    document.querySelector('[data-bs-target="#login"]').click();
+                    e.target.reset();
+                } else {
+                    alert('Error: ' + result.error);
+                }
+            } catch (error) {
+                alert('Registration failed: ' + error.message);
+            }
+        });
+    </script>
+</body>
+</html>
