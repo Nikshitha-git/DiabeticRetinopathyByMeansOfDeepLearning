@@ -1,0 +1,19 @@
+## 📄 Research Publication & Conference Presentation
+
+This project was developed as part of our undergraduate mini project
+and was further documented as a research paper.
+
+The work was presented at a National Conference.
+
+Research Paper
+
+Title: Diabetic Retinopathy Detection by Means of DeepLearning
+
+Conference: National Conference
+Presentation: National Conference, 2025
+
+Publication : International Journal of Engineering Research in Computer Science and Engineering
+(IJERCSE) 
+Volume 13, Issue 1, January 2026
+ISSN (Online) 2394-2320
+View Published Paper : https://ijercse.com/article/30%20January%202026%20IJERCSE.pdf

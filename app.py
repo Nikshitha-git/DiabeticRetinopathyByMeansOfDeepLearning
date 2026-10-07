@@ -8,9 +8,9 @@ from functools import wraps
 import os
 import requests
 import json
-from reportlab.lib.pagesizes import letter
-from reportlab.pdfgen import canvas
-from reportlab.lib.units import inch
+# from reportlab.lib.pagesizes import letter
+# from reportlab.pdfgen import canvas
+# from reportlab.lib.units import inch
 from PIL import Image
 
 app = Flask(__name__)
@@ -36,7 +36,7 @@ screenings_collection = db['screenings']
 doctors_collection = db['doctors']
 
 # ⚠️ UPDATE THIS WITH YOUR ACTUAL NGROK URL FROM COLAB!
-COLAB_MODEL_URL = "https://5279478ee732.ngrok-free.app/predict"
+COLAB_MODEL_URL = "https://69dd-34-142-234-210.ngrok-free.app/predict"
 
 # ===================================
 # AUTHENTICATION DECORATORS

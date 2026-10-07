@@ -1,0 +1,7 @@
+Flask
+flask-cors
+pymongo
+Werkzeug
+requests
+Pillow
+python-dotenv
