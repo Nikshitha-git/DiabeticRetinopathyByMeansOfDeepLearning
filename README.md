@@ -13,7 +13,7 @@
 
 <tr>
 <td align="center">
-<img src="Images/Doctor_Dashboard.png" width="400">
+<img src="Images/Doctor Dashboard.png" width="400">
 <br><b>Doctor Dashboard</b>
 </td>
 
@@ -25,19 +25,19 @@
 
 <tr>
 <td align="center">
-<img src="Images/Doctor_System_New_Screening_Page.png" width="400">
+<img src="Images/Doctor System New Screening Page.png" width="400">
 <br><b>New Screening</b>
 </td>
 
 <td align="center">
-<img src="Images/Patient_Login_Dashboard.png" width="400">
+<img src="Images/Patient Login Dashboard.png" width="400">
 <br><b>Patient Dashboard</b>
 </td>
 </tr>
 
 <tr>
 <td align="center">
-<img src="Images/Patient_Prediction_Analysis.png" width="400">
+<img src="Images/Patient Prediction Analysis.png" width="400">
 <br><b>Prediction Analysis</b>
 </td>
 <td></td>
