@@ -11,7 +11,7 @@ Title: Diabetic Retinopathy Detection by Means of DeepLearning
 
 Conference: National Conference
 Presentation: National Conference, 2025
-
+View Abstarct Here: https://ijercse.com/diabetic-retinopathy-detection.php
 Publication : International Journal of Engineering Research in Computer Science and Engineering
 (IJERCSE) 
 Volume 13, Issue 1, January 2026
