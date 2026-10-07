@@ -2,7 +2,7 @@
 
 <table>
 <tr>
-<td><img src="images/landing_page.png" width="450"></td>
+<td><img src="Images/landing_page.png" width="450"></td>
 <td><img src="images/Doctor-login.png" width="450"></td>
 <td><img src="images/Doctor Dashboard.png" width="450"></td>
 </tr>
