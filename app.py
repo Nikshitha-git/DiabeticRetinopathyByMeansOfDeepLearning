@@ -36,7 +36,7 @@ screenings_collection = db['screenings']
 doctors_collection = db['doctors']
 
 # ⚠️ UPDATE THIS WITH YOUR ACTUAL NGROK URL FROM COLAB!
-COLAB_MODEL_URL = "https://69dd-34-142-234-210.ngrok-free.app/predict"
+COLAB_MODEL_URL = "https://xyabc.....(your ngrok link).ngrok-free.app/predict"
 
 # ===================================
 # AUTHENTICATION DECORATORS
