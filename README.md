@@ -1,3 +1,155 @@
+# 🩺 Diabetic Retinopathy Detection by Means of Deep Learning
+
+## 📌 About the Project
+
+Diabetic Retinopathy Detection is a deep learning-based web application designed to assist in the early screening and classification of **Diabetic Retinopathy (DR)** from retinal fundus images.
+
+The system uses a **ResNet50-based deep learning model** trained to classify retinal images into **five stages of diabetic retinopathy**. The trained model is integrated with a **Flask web application**, allowing doctors to upload retinal images and receive AI-based screening predictions through an easy-to-use interface.
+
+The application also provides separate interfaces for **doctors and patients**, along with patient management, screening history, prediction analysis, and report generation features. **MongoDB** is used to store application and screening-related data.
+
+The project combines **deep learning, computer vision, web development, and database management** to create an end-to-end prototype for AI-assisted diabetic retinopathy screening.
+
+---
+
+## 🎯 Objectives
+
+* Detect diabetic retinopathy from retinal fundus images using deep learning.
+* Classify retinal images into five different stages of diabetic retinopathy.
+* Provide an easy-to-use interface for doctors to perform screenings.
+* Maintain patient information and screening history.
+* Present prediction results and analysis in an understandable format.
+* Generate screening reports for reference.
+
+---
+
+## ✨ Key Features
+
+* 🧠 **AI-Based Detection** — ResNet50 deep learning model for retinal image classification.
+* 👨‍⚕️ **Doctor Portal** — Doctor login, patient management, and screening functionality.
+* 👤 **Patient Portal** — Patient dashboard and access to screening information.
+* 🩺 **New Screening** — Upload retinal fundus images for AI-assisted prediction.
+* 📊 **Prediction Analysis** — Displays the predicted diabetic retinopathy stage and analysis.
+* 📋 **Screening History** — Maintains previous screening records.
+* 📄 **Report Generation** — Generates screening reports based on prediction results.
+* 🗄️ **MongoDB Integration** — Stores patient, doctor, and screening information.
+* 🌐 **Flask Web Application** — Provides the backend and connects the user interface with the prediction system.
+
+---
+
+## 🧠 Deep Learning Model
+
+The project uses **ResNet50**, a deep convolutional neural network architecture, for diabetic retinopathy classification.
+
+### Model Configuration
+
+| Component           | Details                                     |
+| ------------------- | ------------------------------------------- |
+| Model               | ResNet50                                    |
+| Pre-trained Weights | ImageNet                                    |
+| Classification      | 5 Classes                                   |
+| Dataset Split       | 70% Training / 15% Validation / 15% Testing |
+| Image Enhancement   | CLAHE                                       |
+| Framework           | TensorFlow / Keras                          |
+
+### Model Performance
+
+* **Accuracy:** 76.36%
+* **Sensitivity:** 46.81%
+* **Macro AUC:** 89.88%
+* **Weighted AUC:** 93.88%
+
+The model is trained separately and exposed through a prediction API, which is accessed by the Flask application for inference.
+
+---
+
+## 🏗️ System Architecture
+
+```text
+                  Retinal Fundus Image
+                           │
+                           ▼
+                  Image Preprocessing
+                           │
+                           ▼
+                    ResNet50 Model
+                           │
+                           ▼
+                 5-Class Prediction
+                           │
+                           ▼
+                Prediction / Analysis
+                           │
+             ┌─────────────┴─────────────┐
+             ▼                           ▼
+       Doctor Dashboard            Patient Dashboard
+             │                           │
+             └─────────────┬─────────────┘
+                           ▼
+                       MongoDB
+                           │
+                           ▼
+                    Screening Reports
+```
+
+---
+
+## 🛠️ Technologies Used
+
+**Machine Learning**
+
+* Python
+* TensorFlow / Keras
+* ResNet50
+* OpenCV / Image Processing
+
+**Backend**
+
+* Flask
+* Flask-CORS
+* Python
+
+**Database**
+
+* MongoDB
+
+**Frontend**
+
+* HTML
+* CSS
+* JavaScript
+
+**Development & Tools**
+
+* Google Colab
+* VS Code
+* Git & GitHub
+
+---
+
+## 📸 Application Preview
+
+<!-- Add your UI screenshots here -->
+
+---
+
+## 📄 Research Publication
+
+This project was further developed and documented as a research work and presented at a **National Conference**.
+
+**Research Area:** Deep Learning-based Diabetic Retinopathy Detection
+
+<!-- Add your official publication/conference link here -->
+
+---
+
+## ⚠️ Disclaimer
+
+This project is developed for **academic and research purposes**. The predictions generated by the system are intended to assist with screening and should **not be considered a substitute for professional medical diagnosis**.
+
+
+
+
 <table>
 <tr>
 <td align="center">
